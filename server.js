@@ -44,6 +44,13 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Portfolio HQ',
+        welcomeMessage: 'This page lists a comprehensive portfolio of all the projects completed'
+    });
+});
+
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About page'
