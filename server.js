@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -19,7 +21,7 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    if (true) {
+    if (false) {
         res.render('maintenance.hbs', {
             pageTitle: "We'll be right back!",
             welcomeMessage: 'The website is under maintenance, we\'ll be back soon'
@@ -55,6 +57,6 @@ app.get('/bad', (req, res) => {
         description: 'This is a bad request, please try other path'
     })
 });
-app.listen('3000', () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
